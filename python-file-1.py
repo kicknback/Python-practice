@@ -65,4 +65,22 @@ high_num = 0
 for num in num_list:
     if num > high_num:
         high_num = num
-print(high_num)
+# print(high_num)
+
+# matricies
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# print(matrix[1][2])
+
+# remove duplicates in a list
+
+dupe_list = [2, 4, 2, 6, 11, 4, 6, 5, 6, 7]
+for i in dupe_list:
+    if dupe_list.count(i) > 1:
+        dupe_list.remove(i)
+print(dupe_list)
