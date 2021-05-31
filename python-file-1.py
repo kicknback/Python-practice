@@ -41,4 +41,14 @@ total = 0
 for i in prices:
     total += i
 
-print(total)
+# print(total)
+
+# nested for loop to print letters in the output
+numbers = [1, 1, 1, 1, 6]   #L
+numbers = [5, 2, 5, 2, 2]   #F
+
+for i in numbers:
+    output = ''
+    for y in range(i):
+        output += 'x'
+    print(output)
