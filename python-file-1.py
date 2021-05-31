@@ -47,8 +47,21 @@ for i in prices:
 numbers = [1, 1, 1, 1, 6]   #L
 numbers = [5, 2, 5, 2, 2]   #F
 
-for i in numbers:
-    output = ''
-    for y in range(i):
-        output += 'x'
-    print(output)
+# for i in numbers:
+#     output = ''
+#     for y in range(i):
+#         output += 'x'
+#     print(output)
+
+
+# lists
+
+# exercise to find highest number in a list
+
+num_list = [3, 5, 25, 82, 32, 7, 13, 59, 21]
+
+high_num = 0
+for num in num_list:
+    if num > high_num:
+        high_num = num
+print(high_num)
