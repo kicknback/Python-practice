@@ -83,4 +83,37 @@ dupe_list = [2, 4, 2, 6, 11, 4, 6, 5, 6, 7]
 for i in dupe_list:
     if dupe_list.count(i) > 1:
         dupe_list.remove(i)
-print(dupe_list)
+# print(dupe_list)
+
+# dictionary ================================
+customer = {
+    "name": "John Smith",
+    "age": 30,
+    "is_verified": True
+}
+# print(customer["name"])
+# print(customer.get("name"))
+# print(customer)
+
+digits = {
+    "1": "One ",
+    "2": "Two ",
+    "3": "Three ",
+    "4": "Four "
+}
+
+user_input = input("Phone: ")
+
+out_str = ""
+
+for ch in user_input:
+    out_str += digits.get(ch, "!")
+print(out_str)
+
+
+
+
+
+
+
+
