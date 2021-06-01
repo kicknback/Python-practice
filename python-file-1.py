@@ -118,7 +118,7 @@ def square(num):
 
 # print(square(18))
 
-message = input(">")
+# message = input(">")
 
 def emoji_generator(msg):
     words = msg.split(" ")
@@ -132,7 +132,7 @@ def emoji_generator(msg):
     return output
 
 
-print(emoji_generator(message))
+# print(emoji_generator(message))
 
 
 
