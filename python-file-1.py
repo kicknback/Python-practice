@@ -2,7 +2,7 @@ new_string = "blah blah blah"
 copied_str = new_string[:]
 # print(copied_str)
 
-############### Coding with Mosh ########################
+# ############## Coding with Mosh ########################
 
 # Tiny car program
 
@@ -102,14 +102,37 @@ digits = {
     "4": "Four "
 }
 
-user_input = input("Phone: ")
+# user_input = input("Phone: ")
 
-out_str = ""
+# out_str = ""
+#
+# for ch in user_input:
+#     out_str += digits.get(ch, "!")
+# print(out_str)
 
-for ch in user_input:
-    out_str += digits.get(ch, "!")
-print(out_str)
+# ========================== Functions ==============================
 
+def square(num):
+    return num * num
+
+
+# print(square(18))
+
+message = input(">")
+
+def emoji_generator(msg):
+    words = msg.split(" ")
+    emojis = {
+        ":)": "😀",
+        ":(": "😢"
+    }
+    output = ""
+    for word in words:
+        output += emojis.get(word, word) + " "
+    return output
+
+
+print(emoji_generator(message))
 
 
 
