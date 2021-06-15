@@ -1,3 +1,5 @@
+import random
+
 new_string = "blah blah blah"
 copied_str = new_string[:]
 # print(copied_str)
@@ -157,16 +159,16 @@ point1 = Point(35, 80)
 point1.x = 10
 point1.y = 20
 # print(point1.x)
-point1.draw()
+# point1.draw()
 
 point2 = Point(34, 79)
 point2.x = 1
-print(point2.x)
+# print(point2.x)
 
 
 point = Point(10, 20)
 
-print(point.x)
+# print(point.x)
 
 class Person:
     def __init__(self, name):
@@ -178,10 +180,10 @@ class Person:
 
 john = Person("John Smith")
 # print(john.name)
-john.talk()
+# john.talk()
 
 bob = Person("Bob Smith")
-bob.talk()
+# bob.talk()
 
 # inheritance
 
@@ -201,19 +203,25 @@ class Cat(Mammal):
         print("meow")
 
 
-dog1 = Dog()
-dog1.walk()
+# dog1 = Dog()
+# dog1.walk()
 
 
+# generating random values
+
+# for i in range(3):
+#     print(random.randint(10, 20))
+
+class Dice:
+    def roll(self):
+        first = random.randint(1, 6)
+        second = random.randint(1, 6)
+        return first, second
 
 
+dice = Dice()
 
-
-
-
-
-
-
+# print(dice.roll())
 
 
 
