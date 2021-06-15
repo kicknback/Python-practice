@@ -135,6 +135,86 @@ def emoji_generator(msg):
 # print(emoji_generator(message))
 
 
+# classes in python
+
+numbers1 = [1, 2, 3]
+
+
+class Point:
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def move(self):
+        print("move")
+
+    def draw(self):
+        print("draw")
+
+
+point1 = Point(35, 80)
+point1.x = 10
+point1.y = 20
+# print(point1.x)
+point1.draw()
+
+point2 = Point(34, 79)
+point2.x = 1
+print(point2.x)
+
+
+point = Point(10, 20)
+
+print(point.x)
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def talk(self):
+        print(f"Hi, I am {self.name}")
+
+
+john = Person("John Smith")
+# print(john.name)
+john.talk()
+
+bob = Person("Bob Smith")
+bob.talk()
+
+# inheritance
+
+
+class Mammal:
+    def walk(self):
+        print("walk")
+
+
+class Dog(Mammal):
+    def bark(self):
+        print("bark")
+
+
+class Cat(Mammal):
+    def meow(self):
+        print("meow")
+
+
+dog1 = Dog()
+dog1.walk()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
