@@ -7,14 +7,38 @@
 # Also, if a number is negative, return 0(for languages that do have them)
 
 
-def solution(number):
-    total = 0
-    for i in range(number):
-        if i % 3 == 0 and i % 5 == 0:
-            total += i
-        if i % 3 == 0 or i % 5 == 0:
-            total += i
-    return total
+# def solution(number):
+#     if number < 0:
+#         return 0
+#     total = 0
+#     for i in range(number):
+#         if i % 3 == 0 and i % 5 == 0:
+#             total += i
+#             continue
+#         if i % 3 == 0 or i % 5 == 0:
+#             total += i
+#     return total
+#
+#
+# print(solution(16))
 
 
-print(solution(10))
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Create a function named divisors/Divisors that takes an integer n > 1
+# and returns an array with all of the integer's divisors' \
+# '(except for 1 and the number itself), from smallest to largest.
+# If the number is prime return the string '(integer) is prime'
+
+def divisors(integer):
+    if integer == 1 or integer == 2 or integer == 3:
+        return f"{integer} is prime"
+    div_arr = []
+    for i in range(2, (integer // 2) + 1):
+        if integer % i == 0:
+            div_arr.append(i)
+    if len(div_arr) == 0:
+        return f"{integer} is prime"
+    return div_arr
+
+
+print(divisors(100))
