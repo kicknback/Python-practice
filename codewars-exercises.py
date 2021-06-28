@@ -29,16 +29,30 @@
 # '(except for 1 and the number itself), from smallest to largest.
 # If the number is prime return the string '(integer) is prime'
 
-def divisors(integer):
-    if integer == 1 or integer == 2 or integer == 3:
-        return f"{integer} is prime"
-    div_arr = []
-    for i in range(2, (integer // 2) + 1):
-        if integer % i == 0:
-            div_arr.append(i)
-    if len(div_arr) == 0:
-        return f"{integer} is prime"
-    return div_arr
+# def divisors(integer):
+#     if integer == 1 or integer == 2 or integer == 3:
+#         return f"{integer} is prime"
+#     div_arr = []
+#     for i in range(2, (integer // 2) + 1):
+#         if integer % i == 0:
+#             div_arr.append(i)
+#     if len(div_arr) == 0:
+#         return f"{integer} is prime"
+#     return div_arr
+#
+#
+# print(divisors(100))
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Given an array of integers, find the one that appears an odd number of times.
+#
+# There will always be only one integer that appears an odd number of times.
 
 
-print(divisors(100))
+def find_it(seq):
+    for i in seq:
+        if seq.count(i) % 2 != 0:
+            return i
+
+
+print(find_it([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5]))
