@@ -76,21 +76,35 @@ def find_it(seq):
 # tickets([25, 25, 50, 50, 100]) # => NO. Vasya will not have the right bills to give 75 dollars of change
 # (you can't make two bills of 25 from one of 50)
 
+
 def tickets(people):
-    total = 0
+    sum_of_25s = 0
+    sum_of_50s = 0
     for ticket in people:
         if ticket == 25:
-            total += ticket
-        else:
-            change = ticket - 25
-            if change > total:
+            sum_of_25s += 1
+        elif ticket == 50:
+            if sum_of_25s == 0:
                 return "NO"
             else:
-                total -= change
+                sum_of_50s += 1
+                sum_of_25s -= 1
+        else:
+            if sum_of_50s == 0 and sum_of_25s == 0:
+                return "NO"
+            elif sum_of_50s == 1 and sum_of_25s == 0:
+                return "NO"
+            elif sum_of_50s == 0 and sum_of_25s >= 3:
+                sum_of_25s -= 3
+            elif sum_of_50s >= 1 and sum_of_25s >= 1:
+                sum_of_50s -= 1
+                sum_of_25s -= 1
+            else:
+                return "NO"
     return "YES"
 
 
-print(tickets([25, 25, 50, 50, 100]))
+print(tickets([25, 25, 25, 100, 50, 25, 25, 50]))
 
 
 
