@@ -121,11 +121,12 @@ print(tickets([25, 25, 25, 100, 50, 25, 25, 50]))
 
 
 def max_sequence(int_arr):
-    size = int_arr.length
+    if len(int_arr) == 0:
+        return 0
+    if all(i < 0 for i in int_arr):
+        return 0
     max_so_far = -100000000
     max_ending_here = 0
-    if int_arr.length == 0:
-        return 0
 
     for i, val in enumerate(int_arr):
         max_ending_here = max_ending_here + int_arr[i]
