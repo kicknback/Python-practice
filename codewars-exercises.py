@@ -120,6 +120,22 @@ print(tickets([25, 25, 25, 100, 50, 25, 25, 50]))
 # Note that the empty list or array is also a valid sublist/subarray.
 
 
+def max_sequence(int_arr):
+    size = int_arr.length
+    max_so_far = -100000000
+    max_ending_here = 0
+    if int_arr.length == 0:
+        return 0
+
+    for i, val in enumerate(int_arr):
+        max_ending_here = max_ending_here + int_arr[i]
+        if max_so_far < max_ending_here:
+            max_so_far = max_ending_here
+        if max_ending_here < 0:
+            max_ending_here = 0
+    return max_so_far
+
+
 
 
 
