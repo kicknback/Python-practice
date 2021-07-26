@@ -136,6 +136,127 @@ def max_sequence(int_arr):
             max_ending_here = 0
     return max_so_far
 
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Create a function taking a positive integer as its parameter and returning a string containing the Roman Numeral
+# representation of that integer.
+#
+# Modern Roman numerals are written by expressing each digit separately starting with the left most digit and skipping
+# any digit with a value of zero. In Roman numerals 1990 is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC. 2008 is
+# written as 2000=MM, 8=VIII; or MMVIII. 1666 uses each Roman symbol in descending order: MDCLXVI.
+#
+# Example:
+#
+# solution(1000) # should return 'M'
+
+
+def thousands(num):
+    if num == 1:
+        return "M"
+    elif num == 2:
+        return "MM"
+    elif num == 3:
+        return "MMM"
+
+
+def hundreds(num):
+    if num == 9:
+        return "CM"
+    elif num == 8:
+        return "DCCC"
+    elif num == 7:
+        return "DCC"
+    elif num == 6:
+        return "DC"
+    elif num == 5:
+        return "D"
+    elif num == 4:
+        return "CD"
+    elif num == 3:
+        return "CCC"
+    elif num == 2:
+        return "CC"
+    elif num == 1:
+        return "C"
+    elif num == 0:
+        return ""
+
+
+def tens(num):
+    if num == 9:
+        return "XC"
+    elif num == 8:
+        return "LXXX"
+    elif num == 7:
+        return "LXX"
+    elif num == 6:
+        return "LX"
+    elif num == 5:
+        return "L"
+    elif num == 4:
+        return "XL"
+    elif num == 3:
+        return "XXX"
+    elif num == 2:
+        return "XX"
+    elif num == 1:
+        return "X"
+    elif num == 0:
+        return ""
+
+
+def ones(num):
+    if num == 9:
+        return "IX"
+    elif num == 8:
+        return "VIII"
+    elif num == 7:
+        return "VII"
+    elif num == 6:
+        return "VI"
+    elif num == 5:
+        return "V"
+    elif num == 4:
+        return "IV"
+    elif num == 3:
+        return "III"
+    elif num == 2:
+        return "II"
+    elif num == 1:
+        return "I"
+    elif num == 0:
+        return ""
+
+
+def solution(n):
+    roman_string = ""
+    num_arr = [int(x) for x in str(n)]
+    places = len(num_arr)
+
+    if places == 4:
+        roman_string += thousands(num_arr[0])
+        roman_string += hundreds(num_arr[1])
+        roman_string += tens(num_arr[2])
+        roman_string += ones(num_arr[3])
+    elif places == 3:
+        roman_string += hundreds(num_arr[0])
+        roman_string += tens(num_arr[1])
+        roman_string += ones(num_arr[2])
+    elif places == 2:
+        roman_string += tens(num_arr[0])
+        roman_string += ones(num_arr[1])
+    elif places == 1:
+        roman_string += ones(num_arr[0])
+
+    # I = 1
+    # V = 5
+    # X = 10
+    # L = 50
+    # C = 100
+    # D = 500
+    # M = 1000
+
+    return roman_string
+
 
 
 
