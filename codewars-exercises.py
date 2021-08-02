@@ -104,7 +104,7 @@ def tickets(people):
     return "YES"
 
 
-print(tickets([25, 25, 25, 100, 50, 25, 25, 50]))
+# print(tickets([25, 25, 25, 100, 50, 25, 25, 50]))
 
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # The maximum sum subarray problem consists in finding the maximum sum of a contiguous
@@ -257,10 +257,34 @@ def solution(n):
 
     return roman_string
 
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Write a function, which takes a non-negative integer (seconds) as input and returns the time in a
+# human-readable format (HH:MM:SS)
+#
+# HH = hours, padded to 2 digits, range: 00 - 99
+# MM = minutes, padded to 2 digits, range: 00 - 59
+# SS = seconds, padded to 2 digits, range: 00 - 59
+# The maximum time never exceeds 359999 (99:59:59)
+#
+# You can find some examples in the test fixtures.
 
 
+def make_readable(seconds):
+    secs = 0
+    mins = 0
+    hrs = 0
+    for i in range(seconds + 1):
+        if secs == 60:
+            mins += 1
+            secs = 0
+        if mins == 60:
+            hrs += 1
+            mins = 0
+        secs += i
+    return "{}:{}:{}".format(hrs, mins, secs)
 
 
+print(make_readable(86399))
 
 
 
