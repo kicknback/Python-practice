@@ -273,19 +273,27 @@ def make_readable(seconds):
     secs = 0
     mins = 0
     hrs = 0
-    for i in range(seconds + 1):
-        if secs == 60:
+    for i in range(1, seconds + 1):
+        secs += 1
+        if secs > 59:
             mins += 1
             secs = 0
-        if mins == 60:
+        if mins > 59:
             hrs += 1
             mins = 0
-        secs += i
+
+    if secs < 10:
+        secs = "0" + str(secs)
+    if mins < 10:
+        mins = "0" + str(mins)
+    if hrs < 10:
+        hrs = "0" + str(hrs)
+
     return "{}:{}:{}".format(hrs, mins, secs)
 
 
-print(make_readable(86399))
-
+# print(make_readable(86399))
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 
 
