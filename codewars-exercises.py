@@ -309,23 +309,49 @@ def make_readable(seconds):
 # solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
 # returns "-6,-3-1,3-5,7-11,14,15,17-20"
 
+# def solution_(args):
+#     range_string = ""
+#
+#     while len(args) > 0:
+#         range_counter = 0
+#         add_item = True
+#         item = args.pop(0)
+#         if args[0] == item + 1:
+#             start_value = item
+#             while args[0] == item + 1:
+#                 item = args.pop(0)
+#                 range_counter += 1
+#                 if not any(args):
+#                     break
+#             if range_counter < 2:
+#                 range_string += str(start_value) + ','
+#                 range_string += str((start_value + 1)) + ','
+#             else:
+#                 range_string += "{}-{},".format(start_value, start_value + range_counter)
+#             add_item = False
+#         if add_item:
+#             range_string += str(item) + ','
+#     return range_string[:-1]
+
+
+# print(solution_([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
+# print(solution_([-3, -2, -1, 2, 10, 15, 16, 18, 19, 20]))
+
 def solution_(args):
     range_string = ""
 
     while len(args) > 0:
-        # temp_range = ""
         range_counter = 0
         add_item = True
         item = args.pop(0)
         if args[0] == item + 1:
             start_value = item
             while args[0] == item + 1:
+                item = args.pop(0)
                 range_counter += 1
-                args.pop(0)
                 if not any(args):
                     break
-            # temp_range += "{}-{},".format(start_value, start_value + range_counter)
-            if range_counter < 3:
+            if range_counter < 2:
                 range_string += str(start_value) + ','
                 range_string += str((start_value + 1)) + ','
             else:
@@ -334,9 +360,6 @@ def solution_(args):
         if add_item:
             range_string += str(item) + ','
     return range_string[:-1]
-
-
-print(solution_([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
 
 
 
