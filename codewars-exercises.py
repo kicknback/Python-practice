@@ -326,13 +326,14 @@ def solution_(args):
                     break
             # temp_range += "{}-{},".format(start_value, start_value + range_counter)
             if range_counter < 3:
-                range_string += "{},{},".format(start_value, start_value + 1)
+                range_string += str(start_value) + ','
+                range_string += str((start_value + 1)) + ','
             else:
                 range_string += "{}-{},".format(start_value, start_value + range_counter)
             add_item = False
         if add_item:
             range_string += str(item) + ','
-    return range_string
+    return range_string[:-1]
 
 
 print(solution_([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
