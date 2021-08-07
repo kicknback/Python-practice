@@ -47,6 +47,7 @@
 # Given an array of integers, find the one that appears an odd number of times.
 #
 # There will always be only one integer that appears an odd number of times.
+import string
 
 
 def find_it(seq):
@@ -308,15 +309,33 @@ def make_readable(seconds):
 # solution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])
 # returns "-6,-3-1,3-5,7-11,14,15,17-20"
 
-def solution(args):
+def solution_(args):
     range_string = ""
-    for i, v in enumerate(args):
-        last_value = v
-        if i == 0:
-            range_string += v
+
+    while len(args) > 0:
+        # temp_range = ""
+        range_counter = 0
+        add_item = True
+        item = args.pop(0)
+        if args[0] == item + 1:
+            start_value = item
+            while args[0] == item + 1:
+                range_counter += 1
+                args.pop(0)
+                if not any(args):
+                    break
+            # temp_range += "{}-{},".format(start_value, start_value + range_counter)
+            if range_counter < 3:
+                range_string += "{},{},".format(start_value, start_value + 1)
+            else:
+                range_string += "{}-{},".format(start_value, start_value + range_counter)
+            add_item = False
+        if add_item:
+            range_string += str(item) + ','
+    return range_string
 
 
-
+print(solution_([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
 
 
 
