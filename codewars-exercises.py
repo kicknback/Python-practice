@@ -137,6 +137,7 @@ def max_sequence(int_arr):
             max_ending_here = 0
     return max_so_far
 
+
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Create a function taking a positive integer as its parameter and returning a string containing the Roman Numeral
 # representation of that integer.
@@ -258,6 +259,7 @@ def solution(n):
 
     return roman_string
 
+
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Write a function, which takes a non-negative integer (seconds) as input and returns the time in a
 # human-readable format (HH:MM:SS)
@@ -344,16 +346,23 @@ def solution_(args):
         range_counter = 0
         add_item = True
         item = args.pop(0)
-        if args[0] == item + 1:
+        if args[0] == item + 1 or args[0] == item - 1:
+            if args[0] == item + 1:
+                item_positive = True
+            else:
+                item_positive = False
             start_value = item
-            while args[0] == item + 1:
+            while args[0] == item + 1 or args[0] == item - 1:
                 item = args.pop(0)
                 range_counter += 1
                 if not any(args):
                     break
             if range_counter < 2:
                 range_string += str(start_value) + ','
-                range_string += str((start_value + 1)) + ','
+                if item_positive:
+                    range_string += str((start_value + 1)) + ','
+                else:
+                    range_string += str((start_value + 1)) + ','
             else:
                 range_string += "{}-{},".format(start_value, start_value + range_counter)
             add_item = False
@@ -362,7 +371,4 @@ def solution_(args):
     return range_string[:-1]
 
 
-
-
-
-
+print(solution_([-52, -49, -46, -44, -41, -39, -37 - -35, -32 - -30, -28, -25, -23, -21, -18, -15, -13, -11]))
