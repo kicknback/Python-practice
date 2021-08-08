@@ -1,3 +1,5 @@
+import re
+
 # If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
 # The sum of these multiples is 23.
 #
@@ -341,11 +343,17 @@ def make_readable(seconds):
 
 def solution_(args):
     range_string = ""
+    for i, v in enumerate(args):
+        if not isinstance(args[i], int):
+            return args
 
     while len(args) > 0:
         range_counter = 0
         add_item = True
         item = args.pop(0)
+        if not any(args):
+            range_string += str(item) + ','
+            break
         if args[0] == item + 1 or args[0] == item - 1:
             if args[0] == item + 1:
                 item_positive = True
@@ -362,7 +370,7 @@ def solution_(args):
                 if item_positive:
                     range_string += str((start_value + 1)) + ','
                 else:
-                    range_string += str((start_value + 1)) + ','
+                    range_string += str((start_value - 1)) + ','
             else:
                 range_string += "{}-{},".format(start_value, start_value + range_counter)
             add_item = False
@@ -371,4 +379,5 @@ def solution_(args):
     return range_string[:-1]
 
 
-print(solution_([-52, -49, -46, -44, -41, -39, -37 - -35, -32 - -30, -28, -25, -23, -21, -18, -15, -13, -11]))
+# print(solution_([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]))
+print(solution_([-52, -49, -46, -44, -41, -39, -37, -35, -32, -30, -28, -25, -23, -21, -18, -15, -13, -11]))
